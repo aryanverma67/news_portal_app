@@ -11,7 +11,7 @@ const NewsCard = ({ query }) => {
   const [filteredData, setFilteredData] = useState([]);
 
   const perPage = 8; // Number of news articles per page
-  const apiKey = "3182dee9568c6517e0634d3343c82520";
+  const apiKey = "9767a846f7f490c4a93da161db845a96";
 
   const fetchData = async (category) => {
     setLoading(true);
