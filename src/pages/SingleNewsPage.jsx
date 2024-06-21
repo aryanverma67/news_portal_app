@@ -9,7 +9,7 @@ const SingleNewsPage = () => {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] mb-6 group overflow-hidden rounded-lg ">
         <img 
-          src={news.urlToImage} 
+          src={news.image} 
           alt="Article" 
           className="absolute rounded-xl inset-0 w-full h-full object-contain "
         />

@@ -11,19 +11,20 @@ const NewsCard = ({ query }) => {
   const [filteredData, setFilteredData] = useState([]);
 
   const perPage = 8; // Number of news articles per page
-  const apiKey = "f80e0293e75b46fc9bf0a3f7ba6ef39b";
+  const apiKey = "3182dee9568c6517e0634d3343c82520";
 
   const fetchData = async (category) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`);
+      const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=us&max=10&apikey=${apiKey}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
       const result = await response.json();
       setData(result.articles || []);
       setFilteredData(result.articles || []);
+      console.log(result.articles)
     } catch (error) {
       setError(error.message);
     } finally {
@@ -87,7 +88,7 @@ const NewsCard = ({ query }) => {
         {filteredData.length > 0 ? (
           paginateData().map((news, index) => (
             <div key={index} className="max-w-sm h-[400px] rounded-lg ml-3 mr-3 overflow-hidden shadow-lg">
-              <img src={news.urlToImage || "https://via.placeholder.com/150"} alt="not found" className="w-full" />
+              <img src={news.image || "https://via.placeholder.com/150"} alt="not found" className="w-full" />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">
                   {news.title || "No Title Available"}
