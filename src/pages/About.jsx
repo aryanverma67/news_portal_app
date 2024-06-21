@@ -19,7 +19,7 @@ const About = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission, e.g., send data to an API or email
-    toast('Form submitted:', formData);
+    toast('data sent succesfully to server:', formData);
     setFormData({
       name: '',
       email: '',
